@@ -1,0 +1,77 @@
+[push]
+	default = simple
+[init]
+	# templatedir copies the files to new repositories.
+	# From git 2.9, you can instead use core.hooksPath, which avoid copying.
+	#templatedir = ~/.git/template
+[core]
+	editor = vim
+	# Tab width of 4 instead of 8 in git diff.
+	pager = less -x1,5
+	# For Windows.
+	# On cygwin, --local core.filemode is set to true on git init/clone. git init2 corrects this.
+	filemode = false
+	# What whitespace is and isn't ok. This appends to the default list.
+	whitespace = cr-at-eol
+	# Convert crlf to lf on commit, no action on checkout.
+	autocrlf = input
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+[merge]
+	# Show the common ancestor.
+	conflictstyle = diff3
+[alias]
+	k = !gitk --all &
+	# Include tags in log output - useful for knowing version of changes.
+	lp = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --simplify-by-decoration -p
+	# Nice log output.
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg2 = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# Start a git repository with an empty commit, followed by .gitattributes/.gitignore.
+	init2 = !"_() {\
+		git init;\
+		git config --unset core.filemode;\
+		git commit --allow-empty -m empty || exit;\
+		git tag root;\
+		\
+		[ ! -e .gitignore ] && echo >> .gitignore;\
+		[ ! -e .gitattributes ] && echo '# Normalize line endings.' >> .gitattributes &&\
+			echo '* text=auto' >> .gitattributes;\
+		\
+		git add .git*;\
+		git commit -m \"Add git files.\";\
+		echo;\
+		git lg;\
+		echo;\
+		echo core.filemode;\
+		git config core.filemode;\
+	}; _"
+	# View and modify global git aliases.
+	alias = !"_() {\
+		if [ $# = 2 ]; then\
+			if [ \"$2\" = '' ]; then\
+				echo \"unset $1\";\
+				git config --global --unset alias.\"$1\";\
+			else\
+				echo \"$1 = $2\";\
+				git config --global alias.\"$1\" \"$2\";\
+			fi;\
+		else\
+			echo 'View and set global git aliases.';\
+			echo;\
+			echo 'usage: git alias [<alias> [<command>]]';\
+			if [ $# = 0 ]; then\
+				echo;\
+				git config --global -l | grep -P \"^alias\\.(?!alias)\" | cut -c 7- | sort;\
+			elif [ $# = 1 ]; then\
+				echo;\
+				git config --global -l | grep -P \"^alias\\.$1\" | cut -c 7-;\
+			fi;\
+			false;\
+		fi;\
+	}; _"
