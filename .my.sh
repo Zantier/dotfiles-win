@@ -71,3 +71,7 @@ alias gre='git rebase'
 alias grecon='git rebase --continue'
 alias gs='git status'
 alias gsh='git show'
+
+# https://www.electricmonk.nl/log/2015/06/22/keep-your-home-dir-in-git-with-a-detached-working-directory/
+# Move dotfiles ~/.git folder to ~/.dotfiles/.git, then use this command
+alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
