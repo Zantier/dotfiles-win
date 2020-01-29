@@ -1,6 +1,8 @@
 [push]
 	default = simple
 [core]
+	# git 2.9: don't need init.templatedir
+	hooksPath = ~/.githooks
 	editor = vim
 	# Tab width of 4 instead of 8 in git diff
 	pager = less -x1,5
