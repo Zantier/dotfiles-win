@@ -49,7 +49,7 @@ __prompt_command() {
 # http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
 
-alias ll='ls -la --color=auto'
+alias l='ls -la --color=auto'
 alias ls='ls --color=auto'
 alias vi=vim
 alias less='less -R' #-R does colors? http://www.ex-parrot.com/pdw/cdiff.html
@@ -58,6 +58,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias cdiff='diff --color'
 
+alias ga='git add'
 alias gb='git branch'
 alias gch='git checkout'
 alias gcom='git commit'
@@ -67,8 +68,9 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 for i in {1..9}; do alias "gd${i}"="git diff HEAD~${i}"; done
 alias gpr='git pull --rebase'
-alias gre='git rebase'
-alias grecon='git rebase --continue'
+alias greb='git rebase'
+alias grebcon='git rebase --continue'
+alias gres='git reset'
 alias gs='git status'
 alias gsh='git show'
 
