@@ -17,9 +17,9 @@
 "Plug 'tpope/vim-surround'
 "call plug#end()
 "
-"autocmd FileType html setlocal expandtab ts=2 sts=2 sw=2
-"autocmd FileType css setlocal expandtab ts=2 sts=2 sw=2
-"autocmd FileType javascript setlocal expandtab ts=2 sts=2 sw=2
+"autocmd FileType html setlocal ts=2 sts=2 sw=2
+"autocmd FileType css setlocal ts=2 sts=2 sw=2
+"autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 "
 "source ~/.my.vim
 
@@ -126,10 +126,11 @@ let &t_EI.="\e[1 q"
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
-autocmd FileType haskell setlocal expandtab
+" Use spaces, not tabs - easier to copy and paste code to and from the browser
+" e.g. chat, wikis, stackoverflow, playgrounds, competitions
+set expandtab
 " For python files, vim sets expandtab ts=8 sts=4 sw=4
-autocmd FileType python setlocal noexpandtab ts=4
+autocmd FileType python setlocal ts=4
 
 let mapleader=","
 " Allow loading local .vimrc
