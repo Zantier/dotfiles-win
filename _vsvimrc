@@ -1,0 +1,11 @@
+" vimrc for VsVim
+" This should be in %userprofile%
+
+source ~/.mybase.vim
+
+" scrolloff isn't always respected
+set scrolloff=0
+" Turn off search highlight and redraw screen
+nnoremap <C-L> :nohl<CR><C-L>
+nmap ,f gS:vsc Tools.InvokePeasyMotion<cr>
+vmap ,f gS:vsc Tools.InvokePeasyMotion<cr>
