@@ -17,10 +17,6 @@
 "Plug 'tpope/vim-surround'
 "call plug#end()
 "
-"autocmd FileType html setlocal ts=2 sts=2 sw=2
-"autocmd FileType css setlocal ts=2 sts=2 sw=2
-"autocmd FileType javascript setlocal ts=2 sts=2 sw=2
-"
 "source ~/.my.vim
 
 
@@ -131,6 +127,9 @@ set shiftwidth=4
 set expandtab
 " For python files, vim sets expandtab ts=8 sts=4 sw=4
 autocmd FileType python setlocal ts=4
+autocmd FileType html setlocal expandtab ts=2 sts=2 sw=2
+autocmd FileType css setlocal expandtab ts=2 sts=2 sw=2
+autocmd FileType javascript setlocal expandtab ts=2 sts=2 sw=2
 
 let mapleader=","
 " Allow loading local .vimrc
