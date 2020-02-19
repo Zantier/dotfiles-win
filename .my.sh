@@ -2,9 +2,12 @@
 
 # Example .bashrc:
 
-#alias ggmail='git config user.name "YourName";git config user.email yourname@gmail.com'
-#
 #test -f ~/.my.sh && source ~/.my.sh
+#
+#alias ggmail='git config user.name "YourName";git config user.email yourname@gmail.com'
+
+# If not running interactively, don't do anything
+[[ $- == *i* ]] || return
 
 test -f ~/.git-prompt.sh && source ~/.git-prompt.sh
 # Programmable completion enhancements.
