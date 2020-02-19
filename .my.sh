@@ -2,9 +2,10 @@
 
 # Example .bashrc:
 
-#test -f ~/.my.sh && source ~/.my.sh
-#
+#prompt_color="105"
 #alias ggmail='git config user.name "YourName";git config user.email yourname@gmail.com'
+#
+#test -f ~/.my.sh && source ~/.my.sh
 
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
@@ -34,14 +35,15 @@ PROMPT_COMMAND=__prompt_command
 __prompt_command() {
 	local EXIT="$?"
 	# Color of square
-	local col=''
+	local prompt_color="\[\e[0;${prompt_color:-105}m\]"
+    local error_color="\[\e[0;41m\]"
 	local square=''
 	if [ $EXIT != 0 ]; then
 		col='\[\e[0;41m\]'
-		square="${col} ${EXIT} \[\e[0m\]"
+		square="${error_color}${EXIT}${prompt_color} \[\e[0m\]"
 	else
 		col='\[\e[0;105m\]'
-		square="${col} \[\e[0m\]"
+		square="${prompt_color} \[\e[0m\]"
 	fi
 
 	local git_prompt='$(__git_ps1 " (%s)")'
