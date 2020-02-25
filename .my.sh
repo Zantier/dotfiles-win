@@ -60,7 +60,7 @@ function ranger-cd {
     fi
     rm -f -- "$tempfile"
 }
-bind '"\C-r":"ranger-cd\C-m"'
+bind '"\C-g":"ranger-cd\C-m"'
 
 # Allow aliases to be run in sudo
 # http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
