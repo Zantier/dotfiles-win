@@ -1,3 +1,6 @@
 # Completion stuff
 set show-all-if-ambiguous on
 set completion-ignore-case on
+
+# Disable bell
+set bell-style none
