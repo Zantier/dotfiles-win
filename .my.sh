@@ -25,6 +25,8 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
 # Change ls colours.
 #export LS_COLORS='ow=01;36;40'
+# Disable bell in less
+export LESS="$LESS -R -Q"
 
 export EDITOR=vim
 export PATH=$HOME/.local/bin:$PATH
