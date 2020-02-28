@@ -77,22 +77,31 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias cdiff='diff --color'
 
-alias ga='git add'
-alias gb='git branch'
-alias gch='git checkout'
-alias gcom='git commit'
-alias gcomam='git commit --amend'
-alias gcomamno='git commit --amend --no-edit'
-alias gd='git diff'
-alias gdc='git diff --cached'
-for i in {1..9}; do alias "gd${i}"="git diff HEAD~${i}"; done
-alias gpr='git pull --rebase'
-alias greb='git rebase'
-alias grebcon='git rebase --continue'
-alias gres='git reset'
-alias gs='git status'
-alias gsh='git show'
-
 # https://www.electricmonk.nl/log/2015/06/22/keep-your-home-dir-in-git-with-a-detached-working-directory/
 # Move dotfiles ~/.git folder to ~/.dotfiles/.git, then use this command
 alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
+
+git_aliases=(
+    'ga add'
+    'gb branch'
+    'gch checkout'
+    'gcom commit'
+    'gcomam commit --amend'
+    'gcomamno commit --amend --no-edit'
+    'gd diff'
+    'gdc diff --cached'
+    'gpr pull --rebase'
+    'greb rebase'
+    'grebcon rebase --continue'
+    'gres reset'
+    'gs status'
+    'gsh show'
+)
+for i in {1..9}; do git_aliases+=("gd${i} diff HEAD~${i}"); done
+
+for element in "${git_aliases[@]}"; do
+    short=$(echo $element | cut -d ' ' -f 1)
+    long=$(echo $element | cut -d ' ' -f 2-)
+    alias $short="git $long"
+    alias d$short='git --git-dir ~/.dotfiles/.git --work-tree=$HOME '"$long"
+done
