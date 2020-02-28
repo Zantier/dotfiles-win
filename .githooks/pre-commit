@@ -27,6 +27,7 @@ done
 IFS=$SAVEIFS
 
 if [ "$is_ready" = "false" ]; then
+    git diff-index --check --cached $against --
     echo -e "\nTrailing whitespace removed. Add and commit."
     exit 1
 fi
