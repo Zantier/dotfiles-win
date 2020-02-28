@@ -5,10 +5,10 @@
 #
 
 if git-rev-parse --verify HEAD >/dev/null 2>&1 ; then
-	against=HEAD
+    against=HEAD
 else
-	# Initial commit: diff against an empty tree object
-	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+    # Initial commit: diff against an empty tree object
+    against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 
 is_ready=true
@@ -19,14 +19,14 @@ IFS=$(echo -en "\n\b")
 # Find files with trailing whitespace
 # On Windows, you need core.whitespace=cr-at-eol
 for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' | sed -r 's/:[0-9]+:.*//' | uniq` ; do
-	# Fix them!
-	# -b and \r are to preserve Windows line endings.
-	sed -bi 's/[ \t]\+\(\r\?\)$/\1/' "$FILE"
-	is_ready=false
+    # Fix them!
+    # -b and \r are to preserve Windows line endings.
+    sed -bi 's/[ \t]\+\(\r\?\)$/\1/' "$FILE"
+    is_ready=false
 done
 IFS=$SAVEIFS
 
 if [ "$is_ready" = "false" ]; then
-	echo "Trailing whitespace removed. Add and commit."
-	exit 1
+    echo -e "\nTrailing whitespace removed. Add and commit."
+    exit 1
 fi
