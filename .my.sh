@@ -11,8 +11,8 @@
 [[ $- == *i* ]] || return
 
 test -f ~/.git-prompt.sh && source ~/.git-prompt.sh
-# Programmable completion enhancements.
-# ~/.bash_completion is sourced last.
+# Programmable completion enhancements
+# ~/.bash_completion is sourced last
 test -f /etc/bash_completion && source /etc/bash_completion
 
 # Don't wait for job termination notification
@@ -20,10 +20,10 @@ set -o notify
 
 # History Options
 #
-# Don't put duplicate lines in the history.
+# Don't put duplicate lines in the history
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
-# Change ls colours.
+# Change ls colors
 #export LS_COLORS='ow=01;36;40'
 
 # less
