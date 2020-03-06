@@ -37,12 +37,12 @@
 		git commit --allow-empty -m empty || exit;\
 		git tag root;\
 		\
-		[ ! -e .gitignore ] && echo >> .gitignore;\
-		[ ! -e .gitattributes ] && echo '# Normalize line endings.' >> .gitattributes &&\
+		[ ! -e .gitattributes ] &&\
+			echo '# Normalize line endings' >> .gitattributes &&\
 			echo '* text=auto' >> .gitattributes;\
 		\
-		git add .git*;\
-		git commit -m \"Add git files\";\
+		git add .gitattributes;\
+		git commit -m \".gitattributes: * text=auto\";\
 		echo;\
 		git lg;\
 		echo;\
