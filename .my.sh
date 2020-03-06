@@ -25,8 +25,13 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 
 # Change ls colours.
 #export LS_COLORS='ow=01;36;40'
-# Disable bell in less
-export LESS="$LESS -R -Q"
+
+# less
+# Default in git is LESS=FRX
+# -R Show color, output raw control characters
+# -S Don't wrap, chop long lines
+# -q Disable bell
+export LESS=FRXSq
 
 export EDITOR=vim
 export PATH=$HOME/.local/bin:$PATH
@@ -71,7 +76,6 @@ alias sudo='sudo '
 alias l='ls -la --color=auto'
 alias ls='ls --color=auto'
 alias vi=vim
-alias less='less -R' #-R does colors? http://www.ex-parrot.com/pdw/cdiff.html
 alias grep='grep --color=always'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
