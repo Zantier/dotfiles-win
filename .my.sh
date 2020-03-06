@@ -3,7 +3,7 @@
 # Example .bashrc:
 
 #prompt_color="105"
-#alias ggmail='git config user.name "YourName";git config user.email yourname@gmail.com'
+#alias ggmail='git init;git config user.name "YourName";git config user.email yourname@gmail.com'
 #
 #test -f ~/.my.sh && source ~/.my.sh
 
