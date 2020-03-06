@@ -35,21 +35,21 @@ export DISPLAY=:0.0
 # Run the function
 PROMPT_COMMAND=__prompt_command
 __prompt_command() {
-	local EXIT="$?"
-	# Color of square
-	local prompt_color="\[\e[0;${prompt_color:-105}m\]"
+    local EXIT="$?"
+    # Color of square
+    local prompt_color="\[\e[0;${prompt_color:-105}m\]"
     local error_color="\[\e[0;41m\]"
-	local square=''
-	if [ $EXIT != 0 ]; then
-		col='\[\e[0;41m\]'
-		square="${error_color}${EXIT}${prompt_color} \[\e[0m\]"
-	else
-		col='\[\e[0;105m\]'
-		square="${prompt_color} \[\e[0m\]"
-	fi
+    local square=''
+    if [ $EXIT != 0 ]; then
+        col='\[\e[0;41m\]'
+        square="${error_color}${EXIT}${prompt_color} \[\e[0m\]"
+    else
+        col='\[\e[0;105m\]'
+        square="${prompt_color} \[\e[0m\]"
+    fi
 
-	local git_prompt='$(__git_ps1 " (%s)")'
-	PS1="\[\e]0;\w\a\]\[\e[33m\]\w\[\e[0m\]${git_prompt} ${square} "
+    local git_prompt='$(__git_ps1 " (%s)")'
+    PS1="\[\e]0;\w\a\]\[\e[33m\]\w\[\e[0m\]${git_prompt} ${square} "
 }
 
 # ranger - on close, change bash directory

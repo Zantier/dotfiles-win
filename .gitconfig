@@ -1,75 +1,75 @@
 [push]
-	default = simple
+    default = simple
 [core]
-	# git 2.9: don't need init.templatedir
-	hooksPath = ~/.githooks
-	editor = vim
-	# Tab width of 4 instead of 8 in git diff
-	pager = less -x1,5
-	# git init2 unsets --local core.filemode
-	filemode = false
-	# What whitespace is and isn't ok. This appends to the default list.
-	whitespace = cr-at-eol
-	# Convert crlf to lf on commit, no action on checkout
-	autocrlf = input
+    # git 2.9: don't need init.templatedir
+    hooksPath = ~/.githooks
+    editor = vim
+    # Tab width of 4 instead of 8 in git diff
+    pager = less -x1,5
+    # git init2 unsets --local core.filemode
+    filemode = false
+    # What whitespace is and isn't ok. This appends to the default list.
+    whitespace = cr-at-eol
+    # Convert crlf to lf on commit, no action on checkout
+    autocrlf = input
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = true
-	pager = true
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
 [merge]
-	# Show the common ancestor
-	conflictstyle = diff3
+    # Show the common ancestor
+    conflictstyle = diff3
 [alias]
-	k = !gitk --all &
-	lp = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' -p
-	# Include tags in log output - useful for knowing version of changes
-	lp2 = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' --simplify-by-decoration -p
-	# Nice log output
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lg2 = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	# Start a git repository with an empty commit, followed by .gitattributes/.gitignore.
-	init2 = !"_() {\
-		git init;\
-		git config --unset core.filemode;\
-		git commit --allow-empty -m empty || exit;\
-		git tag root;\
-		\
-		[ ! -e .gitattributes ] &&\
-			echo '# Normalize line endings' >> .gitattributes &&\
-			echo '* text=auto' >> .gitattributes;\
-		\
-		git add .gitattributes;\
-		git commit -m \".gitattributes: * text=auto\";\
-		echo;\
-		git lg;\
-		echo;\
-		echo core.filemode;\
-		git config core.filemode;\
-	}; _"
-	# View and modify global git aliases
-	alias = !"_() {\
-		if [ $# = 2 ]; then\
-			if [ \"$2\" = '' ]; then\
-				echo \"unset $1\";\
-				git config --global --unset alias.\"$1\";\
-			else\
-				echo \"$1 = $2\";\
-				git config --global alias.\"$1\" \"$2\";\
-			fi;\
-		else\
-			echo 'View and set global git aliases';\
-			echo;\
-			echo 'usage: git alias [<alias> [<command>]]';\
-			if [ $# = 0 ]; then\
-				echo;\
-				git config --global -l | grep -P \"^alias\\.(?!alias)\" | cut -c 7- | sort;\
-			elif [ $# = 1 ]; then\
-				echo;\
-				git config --global -l | grep -P \"^alias\\.$1\" | cut -c 7-;\
-			fi;\
-			false;\
-		fi;\
-	}; _"
+    k = !gitk --all &
+    lp = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' -p
+    # Include tags in log output - useful for knowing version of changes
+    lp2 = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' --simplify-by-decoration -p
+    # Nice log output
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lg2 = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    # Start a git repository with an empty commit, followed by .gitattributes/.gitignore.
+    init2 = !"_() {\
+        git init;\
+        git config --unset core.filemode;\
+        git commit --allow-empty -m empty || exit;\
+        git tag root;\
+        \
+        [ ! -e .gitattributes ] &&\
+            echo '# Normalize line endings' >> .gitattributes &&\
+            echo '* text=auto' >> .gitattributes;\
+        \
+        git add .gitattributes;\
+        git commit -m \".gitattributes: * text=auto\";\
+        echo;\
+        git lg;\
+        echo;\
+        echo core.filemode;\
+        git config core.filemode;\
+    }; _"
+    # View and modify global git aliases
+    alias = !"_() {\
+        if [ $# = 2 ]; then\
+            if [ \"$2\" = '' ]; then\
+                echo \"unset $1\";\
+                git config --global --unset alias.\"$1\";\
+            else\
+                echo \"$1 = $2\";\
+                git config --global alias.\"$1\" \"$2\";\
+            fi;\
+        else\
+            echo 'View and set global git aliases';\
+            echo;\
+            echo 'usage: git alias [<alias> [<command>]]';\
+            if [ $# = 0 ]; then\
+                echo;\
+                git config --global -l | grep -P \"^alias\\.(?!alias)\" | cut -c 7- | sort;\
+            elif [ $# = 1 ]; then\
+                echo;\
+                git config --global -l | grep -P \"^alias\\.$1\" | cut -c 7-;\
+            fi;\
+            false;\
+        fi;\
+    }; _"
