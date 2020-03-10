@@ -57,6 +57,26 @@ __prompt_command() {
     PS1="\[\e]0;\w\a\]\[\e[33m\]\w\[\e[0m\]${git_prompt} ${square} "
 }
 
+# Get information about a command
+function kind() {(
+    type -a "$1"
+    local actual=$1
+    if alias "$1" >/dev/null 2>&1; then
+        local actual=$(alias "$1" | sed -E 's/^alias [^=]+='\''([^ ;'\'']+).*/\1/')
+    fi
+
+    if which "$actual" >/dev/null 2>&1; then
+        local path=$(which "$actual")
+        cd $(dirname "$path")
+        ls -lah --color=auto "$path"
+        while [ -h "$path" ]; do
+            local path=$(readlink "$path")
+            cd $(dirname "$path")
+            ls -lah --color=auto "$path"
+        done
+    fi
+)}
+
 # ranger - on close, change bash directory
 function ranger-cd {
     tempfile="$(mktemp -t tmp.XXXXXX)"
