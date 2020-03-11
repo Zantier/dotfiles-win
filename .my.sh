@@ -115,6 +115,7 @@ git_aliases=(
     'gd diff'
     'gdc diff --cached'
     'gfet fetch'
+    'gl log'
     'gpr pull --rebase'
     'gpush push'
     'greb rebase'
