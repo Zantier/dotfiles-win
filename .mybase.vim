@@ -57,6 +57,9 @@ inoremap kj <esc>
 nnoremap ' `
 " Auto-indent whole file
 nnoremap ,= mzgg=G`z
+" Copy or paste over whole file
+nnoremap ,y :%y<cr>
+nnoremap ,p ggVGp
 nnoremap ,m :wa<cr>:!make && make run<cr>
 nnoremap ,1 :wa<cr>:!make && make run1<cr>
 nnoremap ,2 :wa<cr>:!make && make run2<cr>
