@@ -4,8 +4,9 @@
 
 #prompt_color="105"
 #alias ggmail='git init;git config user.name "YourName";git config user.email yourname@gmail.com'
-#
-#test -f ~/.my.sh && source ~/.my.sh
+# If __git_ps1 command not found
+##source /etc/bash_completion.d/git-prompt
+#source ~/.my.sh
 
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
