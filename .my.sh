@@ -2,9 +2,10 @@
 
 # Example .bashrc:
 
+## 47 light gray, 102 light green, 103 light yellow, 104 light blue, 105 light magenta, 106 light cyan, 107 white
 #prompt_color="105"
 #alias ggmail='git init;git config user.name "YourName";git config user.email yourname@gmail.com'
-# If __git_ps1 command not found
+## If __git_ps1 command not found
 ##source /etc/bash_completion.d/git-prompt
 #source ~/.my.sh
 
