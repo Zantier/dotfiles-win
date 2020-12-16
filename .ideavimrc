@@ -1,0 +1,6 @@
+" vimrc for IntelliJ
+" This should be in %userprofile%
+
+set easymotion
+
+source ~/.my.vim
