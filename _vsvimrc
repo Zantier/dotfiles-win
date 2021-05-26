@@ -7,5 +7,5 @@ source ~/.mybase.vim
 set scrolloff=0
 " Turn off search highlight and redraw screen
 nnoremap <C-L> :nohl<CR><C-L>
-nmap ,f gS:vsc Tools.InvokePeasyMotion<cr>
-vmap ,f gS:vsc Tools.InvokePeasyMotion<cr>
+nnoremap ,f gS:vsc Tools.InvokePeasyMotion<cr>
+vnoremap ,f gS:vsc Tools.InvokePeasyMotion<cr>
