@@ -9,3 +9,7 @@ set scrolloff=0
 nnoremap <C-L> :nohl<CR><C-L>
 nnoremap ,f gS:vsc Tools.InvokePeasyMotion<cr>
 vnoremap ,f gS:vsc Tools.InvokePeasyMotion<cr>
+nnoremap <C-I> :vsc View.NavigateForward<cr>
+nnoremap <C-O> :vsc View.NavigateBackward<cr>
+" gd already acts like Go To Definition
+nnoremap gD :vsc Edit.FindAllReferences<cr>
