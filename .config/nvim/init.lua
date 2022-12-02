@@ -1,10 +1,11 @@
 vim.cmd([[
 call plug#begin('~/.vim/plugged')
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'neovim/nvim-lspconfig'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 source ~/.mytiny.vim
