@@ -12,6 +12,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
 call plug#end()
 
