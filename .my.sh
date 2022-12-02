@@ -33,7 +33,7 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # -R Show color, output raw control characters
 # -S Don't wrap, chop long lines
 # -q Disable bell
-export LESS=FRXSq
+export LESS=FRXq
 
 export EDITOR=vim
 export PATH=$HOME/.local/bin:$PATH
