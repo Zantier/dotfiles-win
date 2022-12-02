@@ -1,5 +1,8 @@
 [push]
     default = simple
+[user]
+    # Prevent "Your name and email address were configured automatically"
+    useConfigOnly = true
 [core]
     # git 2.9: don't need init.templatedir
     hooksPath = ~/.githooks
