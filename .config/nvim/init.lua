@@ -19,7 +19,6 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_re_anywhere = '\v<[A-Za-z0-9]|(^|[ \t]+)@<=[^ \tA-Za-z0-9]([^A-Za-z0-9]|$){4}'
-set omnifunc=v:lua.vim.lsp.omnifunc
 
 
 " Mappings
@@ -34,7 +33,8 @@ inoremap <c-space> <c-x><c-o>
 
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.tsserver.setup{}
-vim.api.nvim_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+-- Doesn't work with nvim_set_option
+vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', {})
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
