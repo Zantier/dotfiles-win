@@ -103,10 +103,6 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias cdiff='diff --color'
 
-# https://www.electricmonk.nl/log/2015/06/22/keep-your-home-dir-in-git-with-a-detached-working-directory/
-# Move dotfiles ~/.git folder to ~/.dotfiles/.git, then use this command
-alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
-
 git_aliases=(
     'ga add'
     'gb branch'
@@ -132,5 +128,4 @@ for element in "${git_aliases[@]}"; do
     short=$(echo $element | cut -d ' ' -f 1)
     long=$(echo $element | cut -d ' ' -f 2-)
     alias $short="git $long"
-    alias d$short='git --git-dir ~/.dotfiles/.git --work-tree=$HOME '"$long"
 done
