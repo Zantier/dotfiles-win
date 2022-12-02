@@ -35,7 +35,7 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # -q Disable bell
 export LESS=FRXq
 
-export EDITOR=vim
+export EDITOR=nvim
 export PATH=$HOME/.local/bin:$PATH
 export DISPLAY=:0.0
 
