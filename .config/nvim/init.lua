@@ -33,6 +33,7 @@ inoremap <c-space> <c-x><c-o>
 ]])
 
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
 vim.api.nvim_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
