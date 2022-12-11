@@ -30,6 +30,8 @@ set bg=dark
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=Black guibg=Black
+hi Pmenu ctermfg=Gray ctermbg=Black
+hi FloatBorder ctermfg=Gray ctermbg=Black
 
 " Allow loading local .vimrc
 set exrc

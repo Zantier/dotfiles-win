@@ -50,6 +50,36 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)
 vim.keymap.set('n', ',i', vim.lsp.buf.hover)
 
+-- Is a floating window open
+function is_float_open()
+    for k,v in pairs(vim.api.nvim_list_wins()) do
+        if vim.api.nvim_win_get_config(v).relative ~= '' then
+            return true
+        end
+    end
+
+    return false
+end
+
+-- dumps table contents, for debugging
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) == 'string' then k = '"'..k..'"' end
+         s = s .. '['..dump(k)..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
+-- Show line diagnostics automatically in hover window
+-- note: vim.o.updatetime is global and should be set only once
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua local _ = is_float_open() or vim.diagnostic.open_float({border='single'})]]
+
 
 -- nvim-cmp
 
@@ -136,10 +166,23 @@ cmp.setup.cmdline(':', {
 })
 
 -- Set up lspconfig.
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require('lspconfig').pyright.setup {
+lspconfig.denols.setup {
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+}
+lspconfig.pyright.setup {
     capabilities = capabilities
 }
-require('lspconfig').tsserver.setup {
-    capabilities = capabilities
+lspconfig.tsserver.setup {
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
 }
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover,
+    {
+        border = "single"
+    }
+)
