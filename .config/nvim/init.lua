@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 Plug 'tpope/vim-surround'
 
 " nvim-cmp - auto-complete
@@ -39,8 +39,6 @@ let g:EasyMotion_re_anywhere = '\v<[A-Za-z0-9]|(^|[ \t]+)@<=[^ \tA-Za-z0-9]([^A-
 "---------
 " Turn off search highlight and redraw screen
 nnoremap <C-L> :nohl<CR><C-L>
-nmap ,f <Plug>(easymotion-jumptoanywhere)
-vmap ,f <Plug>(easymotion-jumptoanywhere)
 nmap gf :Files<cr>
 inoremap <c-space> <c-x><c-o>
 ]])
@@ -186,3 +184,14 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         border = "single"
     }
 )
+
+--a.a .a...a.a.a
+local hop = require('hop')
+hop.setup()
+vim.keymap.set({'i', 'n'}, ',f', function()
+    -- lowercase word, uppercase word, symbol (must not be directly left or right of start of word)
+    -- This is the pattern we want to use, but ^ doesn't work correctly: https://github.com/phaazon/hop.nvim/issues/147
+    --hop.hint_patterns(nil, '\\v[a-zA-Z0-9]([a-z0-9]+|[A-Z0-9]+|)|(^|[ \\t]+)@<=(.[a-zA-Z0-9])@![^ \\ta-zA-Z0-9]+')
+    -- So when matching words, consume any subsequent symbols
+    hop.hint_patterns(nil, '\\v[a-zA-Z0-9]([a-z0-9]+|[A-Z0-9]+|)[^ \\ta-zA-Z0-9]*|(^|[ \\t]+)@<=(.[a-zA-Z0-9])@![^ \\ta-zA-Z0-9]+')
+end)
