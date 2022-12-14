@@ -188,7 +188,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 --a.a .a...a.a.a
 local hop = require('hop')
 hop.setup()
-vim.keymap.set({'i', 'n'}, ',f', function()
+vim.keymap.set({'n', 'v'}, ',f', function()
     -- lowercase word, uppercase word, symbol (must not be directly left or right of start of word)
     -- This is the pattern we want to use, but ^ doesn't work correctly: https://github.com/phaazon/hop.nvim/issues/147
     --hop.hint_patterns(nil, '\\v[a-zA-Z0-9]([a-z0-9]+|[A-Z0-9]+|)|(^|[ \\t]+)@<=(.[a-zA-Z0-9])@![^ \\ta-zA-Z0-9]+')
