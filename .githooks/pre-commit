@@ -22,6 +22,10 @@ for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' |
     # Fix them!
     # -b and \r are to preserve Windows line endings.
     sed -bi 's/[ \t]\+\(\r\?\)$/\1/' "$FILE"
+    # Remove trailing newlines
+    TMP_FILE="$FILE".pre-commit
+    tac "$FILE" | sed '0,/./s/^$/872d91b2399e7cde/;/872d91b2399e7cde/d' | tac >"$TMP_FILE"
+    mv "$TMP_FILE" "$FILE"
     is_ready=false
 done
 IFS=$SAVEIFS
