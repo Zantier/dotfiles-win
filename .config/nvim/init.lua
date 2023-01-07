@@ -34,11 +34,9 @@ autocmd FileType python setlocal ts=4
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_re_anywhere = '\v<[A-Za-z0-9]|(^|[ \t]+)@<=[^ \tA-Za-z0-9]([^A-Za-z0-9]|$){4}'
 
-
 " Mappings
 "---------
 " Turn off search highlight and redraw screen
-nnoremap <C-L> :nohl<CR><C-L>
 nmap gf :Files<cr>
 inoremap <c-space> <c-x><c-o>
 ]])
@@ -49,16 +47,32 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition)
 vim.keymap.set('n', ',i', vim.lsp.buf.hover)
+vim.keymap.set('n', '<c-l>', function()
+    vim.cmd('nohl')
+    vim.cmd('exe "norm! \\<c-l>"')
+end)
 
 -- Is a floating window open
 function is_float_open()
-    for k,v in pairs(vim.api.nvim_list_wins()) do
-        if vim.api.nvim_win_get_config(v).relative ~= '' then
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local config = vim.api.nvim_win_get_config(win)
+        if config.relative ~= '' then
             return true
         end
     end
 
     return false
+end
+
+-- Does basically the same as <c-w>,o
+function close_all_floats()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local config = vim.api.nvim_win_get_config(win)
+        if config.relative ~= '' then
+            -- Do not force
+            vim.api.nvim_win_close(win, false)
+        end
+    end
 end
 
 -- dumps table contents, for debugging
