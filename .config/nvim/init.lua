@@ -173,6 +173,7 @@ lspconfig.denols.setup {
 lspconfig.pyright.setup {
     capabilities = capabilities
 }
+lspconfig.rust_analyzer.setup{}
 lspconfig.tsserver.setup {
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
