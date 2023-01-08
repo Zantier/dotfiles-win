@@ -103,8 +103,13 @@ local has_words_before = function()
 end
 local luasnip = require("luasnip")
 local cmp = require'cmp'
+local types = require'cmp.types'
 
 cmp.setup({
+    -- On autocomplete, don't select first item.
+    -- For some reason, completeopt is not respected.
+    -- https://www.reddit.com/r/neovim/comments/q66d1p/completeopt_not_being_respected/
+    preselect = types.cmp.PreselectMode.None,
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
