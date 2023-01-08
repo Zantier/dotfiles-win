@@ -4,6 +4,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'phaazon/hop.nvim'
+" nvim-treesitter requires nightly neovim, and it's buggy
+" but it's pretty neat:
+"     can format jsx
+"     correctly formats multi-line lists in python
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-surround'
 
 " nvim-cmp - auto-complete
@@ -185,6 +190,17 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
+
+-- Set up treesitter
+require'nvim-treesitter.configs'.setup {
+    auto_install = true,
+    highlight = {
+        enable = true,
+    },
+    indent = {
+        enable = true,
+    },
+}
 
 -- Set up lspconfig.
 local lspconfig = require('lspconfig')
