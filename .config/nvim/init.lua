@@ -98,11 +98,30 @@ function dump(o)
    end
 end
 
+function is_insert_mode()
+    return vim.api.nvim_get_mode()['mode'] == 'i'
+end
+
+-- Open diagnostic float, if no other floats open
+function open_diagnostic_float()
+    local _ = is_float_open() or vim.diagnostic.open_float({border='single'})
+end
+
 -- Show line diagnostics automatically in hover window
 -- note: vim.o.updatetime is global and should be set only once
 vim.o.updatetime = 250
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua local _ = is_float_open() or vim.diagnostic.open_float({border='single'})]]
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua local _ = is_insert_mode() or open_diagnostic_float()]]
 
+vim.api.nvim_create_autocmd('DiagnosticChanged', {
+    callback = function(args)
+        -- Don't want to close autocomplete in insert mode
+        if is_insert_mode() then
+            return
+        end
+        close_all_floats()
+        open_diagnostic_float()
+    end,
+})
 
 -- nvim-cmp
 
