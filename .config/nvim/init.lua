@@ -27,6 +27,8 @@ autocmd FileType css setlocal expandtab ts=2 sts=2 sw=2
 autocmd FileType html setlocal expandtab ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal expandtab ts=2 sts=2 sw=2
 autocmd FileType typescript setlocal expandtab ts=2 sts=2 sw=2
+autocmd FileType javascriptreact setlocal expandtab ts=2 sts=2 sw=2
+autocmd FileType typescriptreact setlocal expandtab ts=2 sts=2 sw=2
 autocmd FileType json setlocal expandtab ts=2 sts=2 sw=2
 " For python files, vim sets expandtab ts=8 sts=4 sw=4
 autocmd FileType python setlocal ts=4
