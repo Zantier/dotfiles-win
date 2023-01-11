@@ -25,6 +25,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
 set completeopt=menu,menuone,noselect
+" Disable mouse. nvim default is mouse enabled.
+set mouse=
 
 source ~/.mytiny.vim
 
