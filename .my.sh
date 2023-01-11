@@ -57,7 +57,7 @@ __prompt_command() {
     fi
 
     local git_prompt='$(__git_ps1 " (%s)")'
-    PS1="\[\e]0;\w\a\]\[\e[33m\]\w\[\e[0m\]${git_prompt} ${square} "
+    PS1="\[\e[33m\]\w\[\e[0m\]${git_prompt} ${square} "
 }
 
 # Get information about a command
