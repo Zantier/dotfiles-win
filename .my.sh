@@ -36,6 +36,7 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 export LESS=FRXq
 
 export EDITOR=nvim
+alias vim="echo -e 'Add the following to .bashrc:\nexport EDITOR=~/.local/nvim-linux64/bin/nvim\nalias vim=\$EDITOR'"
 export PATH=$HOME/.local/bin:$PATH
 export DISPLAY=:0.0
 
