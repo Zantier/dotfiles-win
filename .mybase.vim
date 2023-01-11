@@ -46,6 +46,8 @@ set clipboard=unnamed
 
 " Keep lines below and above the cursor
 set scrolloff=10
+" Don't select newlines in visual mode
+set selection=old
 
 
 
