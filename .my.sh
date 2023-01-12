@@ -5,13 +5,12 @@
 ## 47 light gray, 102 light green, 103 light yellow, 104 light blue, 105 light magenta, 106 light cyan, 107 white
 #prompt_color="105"
 #alias ggmail='git init;git config user.name "YourName";git config user.email yourname@gmail.com'
-## If __git_ps1 command not found
-##source /etc/bash_completion.d/git-prompt
 #source ~/.my.sh
 
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
+test -f ~/.git-completion.sh && source ~/.git-completion.sh
 test -f ~/.git-prompt.sh && source ~/.git-prompt.sh
 # Programmable completion enhancements
 # ~/.bash_completion is sourced last
@@ -40,7 +39,20 @@ alias vim="echo -e 'Add the following to .bashrc:\nexport EDITOR=~/.local/nvim-l
 export PATH=$HOME/.local/bin:$PATH
 export DISPLAY=:0.0
 
-# Run the function
+
+# This is a very simple replacement for __git_ps1
+get_git_prompt() {
+    local res=$(git symbolic-ref --short HEAD 2> /dev/null | sed -E 's/(.+)/ (\1)/')
+    echo "$res"
+}
+
+
+# bash uses $PROMPT_COMMAND, and zsh uses precmd()
+#   which are functions run before each display of the prompt
+# zero-width characters must be between
+#   \[ and \] in bash
+#   %{ and %} in zsh
+# otherwise things like tab-complete and reverse-search mess up
 PROMPT_COMMAND=__prompt_command
 __prompt_command() {
     local EXIT="$?"
@@ -49,16 +61,30 @@ __prompt_command() {
     local error_color="\[\e[0;41m\]"
     local square=''
     if [ $EXIT != 0 ]; then
-        col='\[\e[0;41m\]'
         square="${error_color}${EXIT}${prompt_color} \[\e[0m\]"
     else
-        col='\[\e[0;105m\]'
         square="${prompt_color} \[\e[0m\]"
     fi
 
     local git_prompt='$(__git_ps1 " (%s)")'
     PS1="\[\e[33m\]\w\[\e[0m\]${git_prompt} ${square} "
 }
+precmd() {
+    local EXIT="$?"
+    # Color of square
+    local prompt_color=$'%{\e[0;'${prompt_color:-105}m'%}'
+    local error_color=$'%{\e[0;41m%}'
+    local square=''
+    if [ $EXIT != 0 ]; then
+        square="${error_color}${EXIT}${prompt_color} "$'%{\e[0m%}'
+    else
+        square="${prompt_color} "$'%{\e[0m%}'
+    fi
+
+    local git_prompt='$(__git_ps1 " (%s)")'
+    PS1=$'%{\e[33m%}%~%{\e[0m%}'"${git_prompt} ${square} "
+}
+
 
 # Get information about a command
 function kind() {(
