@@ -83,6 +83,7 @@ precmd() {
         square="${prompt_color} "$'%{\e[0m%}'
     fi
 
+    setopt PROMPT_SUBST
     local git_prompt='$(__git_ps1 " (%s)")'
     PS1=$'%{\e[33m%}%~%{\e[0m%}'"${git_prompt} ${square} "
 }
