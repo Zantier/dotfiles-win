@@ -9,6 +9,7 @@ Plug 'phaazon/hop.nvim'
 "     can format jsx
 "     correctly formats multi-line lists in python
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " nvim-cmp - auto-complete
