@@ -176,3 +176,24 @@ for element in "${git_aliases[@]}"; do
     long=$(echo $element | cut -d ' ' -f 2-)
     alias $short="git $long"
 done
+
+# git completion (works by default in zsh)
+if [ $SHELL_NAME != zsh ]; then
+    __git_complete ga git_add
+    __git_complete gb git_branch
+    __git_complete gch git_checkout
+    __git_complete gcom git_commit
+    __git_complete gcomam git_commit
+    __git_complete gcomamno git_commit
+    __git_complete gd git_diff
+    __git_complete gdc git_diff
+    __git_complete gfet git_fetch
+    __git_complete gl git_log
+    __git_complete gpr git_pull
+    __git_complete gpush git_push
+    __git_complete greb git_rebase
+    __git_complete grebcon git_rebase
+    __git_complete gres git_reset
+    __git_complete gs git_status
+    __git_complete gsh git_show
+fi
