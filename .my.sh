@@ -10,6 +10,8 @@
 # If not running interactively, don't do anything
 [[ $- == *i* ]] || return
 
+SHELL_NAME=$(basename $SHELL)
+
 test -f ~/.git-completion.sh && source ~/.git-completion.sh
 test -f ~/.git-prompt.sh && source ~/.git-prompt.sh
 # Programmable completion enhancements
@@ -106,16 +108,35 @@ function kind() {(
     fi
 )}
 
-# ranger - on close, change bash directory
-function ranger-cd {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
-}
-bind '"\C-g":"ranger-cd\C-m"'
+
+if [ $SHELL_NAME = zsh ]; then
+    # ranger - on close, change directory
+    function ranger-cd {
+        tempfile="$(mktemp -t tmp.XXXXXX)"
+        ranger --choosedir="$tempfile" "${@:-$(pwd)}" <$TTY
+        test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+        rm -f -- "$tempfile"
+        precmd
+        zle reset-prompt
+    }
+    zle -N ranger-cd
+    bindkey '\C-g' ranger-cd
+else
+    # ranger - on close, change directory
+    function ranger-cd {
+        tempfile="$(mktemp -t tmp.XXXXXX)"
+        ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+        test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+        rm -f -- "$tempfile"
+    }
+    bind '"\C-g":"ranger-cd\C-m"'
+fi
 
 # Allow aliases to be run in sudo
 # http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
