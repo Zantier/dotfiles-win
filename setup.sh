@@ -4,6 +4,8 @@
 
 files=(
     .config/nvim/init.lua
+    .git-completion.sh
+    .git-prompt.sh
     .gitconfig
     .githooks/pre-commit
     .inputrc
