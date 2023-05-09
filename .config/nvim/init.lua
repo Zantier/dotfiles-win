@@ -233,14 +233,15 @@ lspconfig.denols.setup {
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
 }
+lspconfig.flow.setup{}
 lspconfig.pyright.setup {
     capabilities = capabilities
 }
 lspconfig.rust_analyzer.setup{}
-lspconfig.tsserver.setup {
-    capabilities = capabilities,
-    root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
-}
+--lspconfig.tsserver.setup {
+--    capabilities = capabilities,
+--    root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
+--}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover,

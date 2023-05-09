@@ -3,6 +3,9 @@
 # Find and fix trailing whitespace in commits. Bypass with
 # git commit --no-verify.
 #
+# On Windows, if you need to store newlines as \r\n for some reason, you need the following:
+# -gitconfig core.whitespace+=cr-at-eol
+# -Pass -b to sed
 
 if git-rev-parse --verify HEAD >/dev/null 2>&1 ; then
     against=HEAD
@@ -16,15 +19,13 @@ is_ready=true
 # http://www.cyberciti.biz/tips/handling-filenames-with-spaces-in-bash.html
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
-# Find files with trailing whitespace
-# On Windows, you need core.whitespace=cr-at-eol
-for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' | sed -r 's/:[0-9]+:.*//' | uniq` ; do
-    # Fix them!
-    # -b and \r are to preserve Windows line endings.
-    sed -bi 's/[ \t]\+\(\r\?\)$/\1/' "$FILE"
+# Find files with issues
+for FILE in `exec git diff-index --check --cached $against -- | gsed '/^[+-]/d' | gsed -r 's/:[0-9]+:.*//' | uniq` ; do
+    # Remove trailing whitespace
+    gsed -bi 's/[ \t]\+\(\r\?\)$/\1/' "$FILE"
     # Remove trailing newlines
     TMP_FILE="$FILE".pre-commit
-    tac "$FILE" | sed '0,/./s/^$/872d91b2399e7cde/;/872d91b2399e7cde/d' | tac >"$TMP_FILE"
+    tac "$FILE" | gsed '0,/./s/^$/872d91b2399e7cde/;/872d91b2399e7cde/d' | tac >"$TMP_FILE"
     mv "$TMP_FILE" "$FILE"
     is_ready=false
 done
