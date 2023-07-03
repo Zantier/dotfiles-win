@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="26"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
+        <value type="int" value="6"/>
+        <value type="int" value="7"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="12"/>
+        <value type="int" value="13"/>
+        <value type="int" value="14"/>
+      </property>
+      <property name="mode" type="uint" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="enable-struts" type="bool" value="true"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="applicationsmenu"/>
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="1"/>
+      <property name="show-labels" type="bool" value="false"/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-5" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="configuring wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext”…"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (59%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (60%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (46%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (58%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (52%)"/>
+        <value type="string" value="wi-fi network connection “75 causeway street” active: 75 causeway street (46%)"/>
+        <value type="string" value="configuring wi-fi network connection “75 causeway street”…"/>
+        <value type="string" value="wi-fi network connection “75 causeway street” active: 75 causeway street (37%)"/>
+        <value type="string" value="wi-fi network connection “75 causeway street” active: 75 causeway street (54%)"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="wi-fi network connection “75 causeway street” active: 75 causeway street (53%)"/>
+        <value type="string" value="wi-fi network connection “75 causeway street” active: 75 causeway street (51%)"/>
+        <value type="string" value="wi-fi network connection “75 causeway street” active: 75 causeway street (50%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (51%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (53%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (50%)"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (48%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (49%)"/>
+        <value type="string" value="preparing wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext”…"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (44%)"/>
+        <value type="string" value="psensor"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (47%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (54%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (55%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g_ext” active: ༼ つ ◕_◕ ༽つ2g_ext (56%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (46%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (86%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (89%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (87%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (76%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (81%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (82%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (84%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (45%)"/>
+        <value type="string" value="no network connection"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (43%)"/>
+        <value type="string" value="wi-fi network connection “༼ つ ◕_◕ ༽つ2g” active: ༼ つ ◕_◕ ༽つ2g (50%)"/>
+        <value type="string" value="requesting a wi-fi network address for “༼ つ ◕_◕ ༽つ2g_ext”…"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="steam"/>
+      </property>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+    </property>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-14" type="string" value="actions"/>
+    <property name="plugin-7" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance104123;chromium.instance1525;chromium.instance1554;chromium.instance1626;chromium.instance1672;chromium.instance16912;chromium.instance1849;chromium.instance2293;chromium.instance2378;chromium.instance2440;chromium.instance2451;chromium.instance2494;chromium.instance2495;chromium.instance2515;chromium.instance2516;chromium.instance2529;chromium.instance2540;chromium.instance2546;chromium.instance2601;chromium.instance2692;chromium.instance2899;chromium.instance2954;chromium.instance3023;chromium.instance41943;chromium.instance4585;chromium.instance56215;chromium.instance63582;chromium.instance7683"/>
+    </property>
+  </property>
+</channel>

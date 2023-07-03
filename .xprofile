@@ -1,0 +1,21 @@
+# https://wiki.archlinux.org/title/Mouse_acceleration#Disabling_mouse_acceleration
+# Mouse
+xinput --set-prop 9 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop 9 'libinput Accel Speed' 1
+# Touchpad
+xinput --set-prop 10 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop 10 'libinput Accel Speed' 1
+xinput --set-prop 10 'libinput Natural Scrolling Enabled' 1
+xinput --set-prop 10 'libinput Scrolling Pixel Distance' 50
+
+# Keyboard repeat (delay, rate)
+xset r rate 200 30
+xkbcomp ~/xkbcomp/output.xkb $DISPLAY
+
+# https://wiki.archlinux.org/title/HiDPI
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
+# For now, seems to work fine by not changing these
+#export QT_AUTO_SCREEN_SCALE_FACTOR=1
+#export QT_FONT_DPI=96
