@@ -1,10 +1,6 @@
-# dotfiles-win
+# dotfiles
 
-dotfiles to be used on Windows
-
-Installed programs:
-- Windows Subsystem for Linux (WSL)
-- VsVim for Visual Studio
+Combined dotfiles for Windows, Linux, MacOS
 
 ### Install
 
@@ -15,12 +11,8 @@ Share Windows clipboard with vim on WSL, for example:
 
 Clone this repository into `~/.dotfiles`.
 
-Move all files, except the `.git` directory, from `~/.dotfiles` to `~`.
+Run `./setup.sh` to configure symlinks.
 
 Create `.bashrc`, which should source `.my.sh`
 
-Create `.vimrc`, which should source `.my.vim` or `.mytiny.vim`.
-
-### Develop
-
-To edit this repository, open WSL to `~`, and use the command `dgit` in place of `git`.
+If using regular vim, create `.vimrc`, which should source `.my.vim` or `.mytiny.vim`.
