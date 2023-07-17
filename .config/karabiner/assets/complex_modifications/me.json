@@ -7,6 +7,28 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "p",
+            "modifiers": {
+              "mandatory": [
+                "right_command"
+              ],
+              "optional": [
+                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4",
+              "modifiers": [
+                "left_command", "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "h",
             "modifiers": {
               "mandatory": [
