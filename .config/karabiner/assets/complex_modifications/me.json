@@ -11,9 +11,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -488,9 +485,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -507,9 +501,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -526,9 +517,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -545,9 +533,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -564,9 +549,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -583,9 +565,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
@@ -602,9 +581,6 @@
             "modifiers": {
               "mandatory": [
                 "right_command"
-              ],
-              "optional": [
-                "caps_lock", "left_shift", "right_shift", "left_control", "right_control", "left_option", "right_option", "left_command"
               ]
             }
           },
