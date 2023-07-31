@@ -31,9 +31,9 @@ set ttimeout ttimeoutlen=100
 set timeout timeoutlen=1000
 
 " Width of tab character, width of tab key, auto-indent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 " Use spaces, not tabs - easier to copy and paste code to and from the browser
 " e.g. chat, wikis, stackoverflow, playgrounds, competitions
 set expandtab
