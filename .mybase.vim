@@ -41,8 +41,8 @@ set expandtab
 " Use sensible regex
 set magic
 
-" Make "* the same as the unnamed register
-set clipboard=unnamed
+" Make "+ the same as the unnamed register
+set clipboard=unnamedplus
 
 " Keep lines below and above the cursor
 set scrolloff=10
