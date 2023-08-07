@@ -44,7 +44,7 @@ nmap gf :Files<cr>
 inoremap <c-space> <c-x><c-o>
 ]])
 
-vim.keymap.set('n', ' .', vim.lsp.buf.code_action)
+vim.keymap.set('n', ' a', vim.lsp.buf.code_action)
 vim.keymap.set('n', ' r', vim.lsp.buf.rename)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
