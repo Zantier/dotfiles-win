@@ -18,6 +18,8 @@
     pager = less -x1,5
     # What whitespace is and isn't ok. This appends to the default list.
     whitespace = cr-at-eol
+[init]
+    defaultBranch = master
 [merge]
     # Show the common ancestor
     conflictstyle = diff3
