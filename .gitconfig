@@ -1,31 +1,31 @@
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    pager = true
+    status = auto
+    ui = true
+[core]
+    # Don't include editor: use EDITOR environment variable
+
+    # Convert crlf to lf on commit, no action on checkout
+    autocrlf = input
+    # git init2 unsets --local core.filemode
+    filemode = false
+    # git 2.9: don't need init.templatedir
+    hooksPath = ~/.githooks
+    # Tab width of 4 instead of 8 in git diff
+    pager = less -x1,5
+    # What whitespace is and isn't ok. This appends to the default list.
+    whitespace = cr-at-eol
+[merge]
+    # Show the common ancestor
+    conflictstyle = diff3
 [push]
     default = simple
 [user]
     # Prevent "Your name and email address were configured automatically"
     useConfigOnly = true
-[core]
-    # Don't include editor: use EDITOR environment variable
-
-    # git 2.9: don't need init.templatedir
-    hooksPath = ~/.githooks
-    # Tab width of 4 instead of 8 in git diff
-    pager = less -x1,5
-    # git init2 unsets --local core.filemode
-    filemode = false
-    # What whitespace is and isn't ok. This appends to the default list.
-    whitespace = cr-at-eol
-    # Convert crlf to lf on commit, no action on checkout
-    autocrlf = input
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
-    ui = true
-    pager = true
-[merge]
-    # Show the common ancestor
-    conflictstyle = diff3
 [alias]
     k = !gitk --all &
     lp = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %B %Cgreen(%cr) %C(bold blue)<%an>%Creset' -p
