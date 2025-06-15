@@ -44,6 +44,9 @@ nmap gf :Files<cr>
 inoremap <c-space> <c-x><c-o>
 ]])
 
+-- Enable 24-bit color
+vim.opt.termguicolors = true
+
 vim.keymap.set('n', ' a', vim.lsp.buf.code_action)
 vim.keymap.set('n', ' r', vim.lsp.buf.rename)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -226,11 +229,12 @@ lspconfig.denols.setup {
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
 }
+lspconfig.nil_ls.setup{}
 lspconfig.pyright.setup {
     capabilities = capabilities
 }
 lspconfig.rust_analyzer.setup{}
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
 }

@@ -29,16 +29,10 @@ set cmdheight=2
 set bg=dark
 
 set cursorline
-hi CursorLine cterm=NONE ctermbg=Black guibg=Black
-hi Pmenu ctermfg=Gray ctermbg=Black
-hi FloatBorder ctermfg=Gray ctermbg=Black
+" Commented out because the default is fine
+"hi CursorLine cterm=none ctermbg=none guibg=#404040
+"hi Pmenu ctermfg=Gray ctermbg=Black
+"hi FloatBorder ctermfg=Gray ctermbg=Black
 
 " Allow loading local .vimrc
 set exrc
-
-
-
-" Mappings
-" --------
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>

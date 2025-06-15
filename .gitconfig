@@ -11,7 +11,7 @@
     # Convert crlf to lf on commit, no action on checkout
     autocrlf = input
     # git init2 unsets --local core.filemode
-    filemode = false
+    filemode = true
     # git 2.9: don't need init.templatedir
     hooksPath = ~/.githooks
     # Tab width of 4 instead of 8 in git diff
@@ -19,7 +19,7 @@
     # What whitespace is and isn't ok. This appends to the default list.
     whitespace = cr-at-eol
 [init]
-    defaultBranch = master
+    defaultBranch = main
 [merge]
     # Show the common ancestor
     conflictstyle = diff3
