@@ -1196,55 +1196,68 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     key  <ESC> {         [          Escape ] };
     key <AE01> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               1,          exclam,     onesuperior,      exclamdown ]
+        symbols[Group1]= [               1,          exclam,     onesuperior,      exclamdown ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK01>, clearmods=LevelThree), RedirectKey(keycode=<FK01>, clearmods=LevelThree)]
     };
     key <AE02> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               2,        quotedbl,     twosuperior,       oneeighth ]
+        symbols[Group1]= [               2,        quotedbl,     twosuperior,       oneeighth ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK02>, clearmods=LevelThree), RedirectKey(keycode=<FK02>, clearmods=LevelThree)]
     };
     key <AE03> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               3,        sterling,   threesuperior,        sterling ]
+        symbols[Group1]= [               3,        sterling,   threesuperior,        sterling ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK03>, clearmods=LevelThree), RedirectKey(keycode=<FK03>, clearmods=LevelThree)]
     };
     key <AE04> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               4,          dollar,        EuroSign,      onequarter ]
+        symbols[Group1]= [               4,          dollar,        EuroSign,      onequarter ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK04>, clearmods=LevelThree), RedirectKey(keycode=<FK04>, clearmods=LevelThree)]
     };
     key <AE05> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               5,         percent,         onehalf,    threeeighths ]
+        symbols[Group1]= [               5,         percent,         onehalf,    threeeighths ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK05>, clearmods=LevelThree), RedirectKey(keycode=<FK05>, clearmods=LevelThree)]
     };
     key <AE06> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               6,     asciicircum,   threequarters,     fiveeighths ]
+        symbols[Group1]= [               6,     asciicircum,   threequarters,     fiveeighths ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK06>, clearmods=LevelThree), RedirectKey(keycode=<FK06>, clearmods=LevelThree)]
     };
     key <AE07> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               7,       ampersand,       braceleft,    seveneighths ]
+        symbols[Group1]= [               7,       ampersand,       braceleft,    seveneighths ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK07>, clearmods=LevelThree), RedirectKey(keycode=<FK07>, clearmods=LevelThree)]
     };
     key <AE08> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               8,        asterisk,     bracketleft,       trademark ]
+        symbols[Group1]= [               8,        asterisk,     bracketleft,       trademark ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK08>, clearmods=LevelThree), RedirectKey(keycode=<FK08>, clearmods=LevelThree)]
     };
     key <AE09> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               9,       parenleft,    bracketright,       plusminus ]
+        symbols[Group1]= [               9,       parenleft,    bracketright,       plusminus ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK09>, clearmods=LevelThree), RedirectKey(keycode=<FK09>, clearmods=LevelThree)]
     };
     key <AE10> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [               0,      parenright,      braceright,          degree ]
+        symbols[Group1]= [               0,      parenright,      braceright,          degree ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK10>, clearmods=LevelThree), RedirectKey(keycode=<FK10>, clearmods=LevelThree)]
     };
     key <AE11> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           minus,      underscore,       backslash,    questiondown ]
+        symbols[Group1]= [           minus,      underscore,       backslash,    questiondown ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK11>, clearmods=LevelThree), RedirectKey(keycode=<FK11>, clearmods=LevelThree)]
     };
     key <AE12> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           equal,            plus,    dead_cedilla,     dead_ogonek ]
+        symbols[Group1]= [           equal,            plus,    dead_cedilla,     dead_ogonek ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<FK12>, clearmods=LevelThree), RedirectKey(keycode=<FK12>, clearmods=LevelThree)]
     };
     key <BKSP> {
         type= "CTRL+ALT",
-        symbols[Group1]= [       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ]
+        symbols[Group1]= [       BackSpace,       BackSpace,        NoSymbol,        NoSymbol, Terminate_Server ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<DELE>, clearmods=LevelThree), RedirectKey(keycode=<DELE>, clearmods=LevelThree), NoAction()]
     };
     key  <TAB> {         [             Tab,    ISO_Left_Tab ] };
     key <AD01> {
@@ -1257,11 +1270,13 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     };
     key <AD03> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               e,               E,               e,               E ]
+        symbols[Group1]= [               e,               E,               e,               E ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<I232>, clearmods=LevelThree), RedirectKey(keycode=<I232>, clearmods=LevelThree)]
     };
     key <AD04> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               r,               R,       paragraph,      registered ]
+        symbols[Group1]= [               r,               R,       paragraph,      registered ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<I233>, clearmods=LevelThree), RedirectKey(keycode=<I233>, clearmods=LevelThree)]
     };
     key <AD05> {
         type= "FOUR_LEVEL_ALPHABETIC",
@@ -1285,7 +1300,8 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     };
     key <AD10> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               p,               P,           thorn,           THORN ]
+        symbols[Group1]= [               p,               P,           thorn,           THORN ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<PRSC>, clearmods=LevelThree), RedirectKey(keycode=<PRSC>, clearmods=LevelThree)]
     };
     key <AD11> {
         type= "FOUR_LEVEL",
@@ -1299,39 +1315,48 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     key <LCTL> {         [       Control_L ] };
     key <AC01> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               a,               A,              ae,              AE ]
+        symbols[Group1]= [               a,               A,              ae,              AE ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<I172>, clearmods=LevelThree), RedirectKey(keycode=<I172>, clearmods=LevelThree)]
     };
     key <AC02> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               s,               S,          ssharp,           U1E9E ]
+        symbols[Group1]= [               s,               S,          ssharp,           U1E9E ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<I173>, clearmods=LevelThree), RedirectKey(keycode=<I173>, clearmods=LevelThree)]
     };
     key <AC03> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               d,               D,             eth,             ETH ]
+        symbols[Group1]= [               d,               D,             eth,             ETH ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<VOL->, clearmods=LevelThree), RedirectKey(keycode=<VOL->, clearmods=LevelThree)]
     };
     key <AC04> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               f,               F,         dstroke,     ordfeminine ]
+        symbols[Group1]= [               f,               F,         dstroke,     ordfeminine ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<VOL+>, clearmods=LevelThree), RedirectKey(keycode=<VOL+>, clearmods=LevelThree)]
     };
     key <AC05> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               g,               G,             eng,             ENG ]
+        symbols[Group1]= [               g,               G,             eng,             ENG ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<I171>, clearmods=LevelThree), RedirectKey(keycode=<I171>, clearmods=LevelThree)]
     };
     key <AC06> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               h,               H,         hstroke,         Hstroke ]
+        symbols[Group1]= [               h,               H,         hstroke,         Hstroke ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<LEFT>, clearmods=LevelThree), RedirectKey(keycode=<LEFT>, clearmods=LevelThree)]
     };
     key <AC07> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               j,               J,       dead_hook,       dead_horn ]
+        symbols[Group1]= [               j,               J,       dead_hook,       dead_horn ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<DOWN>, clearmods=LevelThree), RedirectKey(keycode=<DOWN>, clearmods=LevelThree)]
     };
     key <AC08> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               k,               K,             kra,       ampersand ]
+        symbols[Group1]= [               k,               K,             kra,       ampersand ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<UP>, clearmods=LevelThree), RedirectKey(keycode=<UP>, clearmods=LevelThree)]
     };
     key <AC09> {
         type= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               l,               L,         lstroke,         Lstroke ]
+        symbols[Group1]= [               l,               L,         lstroke,         Lstroke ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<RGHT>, clearmods=LevelThree), RedirectKey(keycode=<RGHT>, clearmods=LevelThree)]
     };
     key <AC10> {
         type= "FOUR_LEVEL",
@@ -1343,20 +1368,22 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     };
     key <TLDE> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           grave,         notsign,             bar,             bar ]
+        symbols[Group1]= [           grave,         notsign,             bar,             bar ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<ESC>, clearmods=LevelThree), RedirectKey(keycode=<ESC>, clearmods=LevelThree)]
     };
     key <LFSH> {         [         Shift_L ] };
     key <BKSL> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [      numbersign,      asciitilde,      dead_grave,      dead_breve ]
+        symbols[Group1]= [      Return,      Return,      dead_grave,      dead_breve ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<I156>, clearmods=LevelThree), RedirectKey(keycode=<I156>, clearmods=LevelThree)]
     };
     key <AB01> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               z,               Z,   guillemotleft,            less ]
+        symbols[Group1]= [               z,               Z,   guillemetleft,            less ]
     };
     key <AB02> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               x,               X,  guillemotright,         greater ]
+        symbols[Group1]= [               x,               X,  guillemetright,         greater ]
     };
     key <AB03> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
@@ -1372,19 +1399,23 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     };
     key <AB06> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               n,               N, rightdoublequotemark, rightsinglequotemark ]
+        symbols[Group1]= [               n,               N, rightdoublequotemark, rightsinglequotemark ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<HOME>, clearmods=LevelThree), RedirectKey(keycode=<HOME>, clearmods=LevelThree)]
     };
     key <AB07> {
         type= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               m,               M,              mu,       masculine ]
+        symbols[Group1]= [               m,               M,              mu,    ordmasculine ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<PGDN>, clearmods=LevelThree), RedirectKey(keycode=<PGDN>, clearmods=LevelThree)]
     };
     key <AB08> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [           comma,            less,           U2022,        multiply ]
+        symbols[Group1]= [           comma,            less,           U2022,        multiply ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<PGUP>, clearmods=LevelThree), RedirectKey(keycode=<PGUP>, clearmods=LevelThree)]
     };
     key <AB09> {
         type= "FOUR_LEVEL",
-        symbols[Group1]= [          period,         greater,  periodcentered,        division ]
+        symbols[Group1]= [          period,         greater,  periodcentered,        division ],
+        actions[Group1]= [NoAction(), NoAction(), RedirectKey(keycode=<END>, clearmods=LevelThree), RedirectKey(keycode=<END>, clearmods=LevelThree)]
     };
     key <AB10> {
         type= "FOUR_LEVEL",
@@ -1537,7 +1568,10 @@ xkb_symbols "pc+gb+inet(evdev)+terminate(ctrl_alt_bksp)" {
     key <I152> {         [    XF86Explorer ] };
     key <I153> {         [        XF86Send ] };
     key <I155> {         [        XF86Xfer ] };
-    key <I156> {         [     XF86Launch1 ] };
+    key <I156> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [      numbersign,      asciitilde,      numbersign,      asciitilde ]
+    };
     key <I157> {         [     XF86Launch2 ] };
     key <I158> {         [         XF86WWW ] };
     key <I159> {         [         XF86DOS ] };
