@@ -238,4 +238,30 @@
       "Xft/DPI" = 192;
     };
   };
+
+  xsession.enable = true;
+  xsession.profileExtra = ''
+    ## https://wiki.archlinux.org/title/Mouse_acceleration#Disabling_mouse_acceleration
+    for i in $(xinput list --id-only); do
+      device_name=$(xinput list --name-only $i)
+      if echo "$device_name" | grep -qi mouse; then
+        echo xinput mouse: [$i] $device_name
+        xinput --set-prop $i 'libinput Accel Profile Enabled' 0, 1
+        xinput --set-prop $i 'libinput Accel Speed' 1
+      fi
+      if echo "$device_name" | grep -qi touchpad; then
+        echo xinput touchpad: [$i] $device_name
+        xinput --set-prop $i 'libinput Accel Profile Enabled' 0, 1
+        xinput --set-prop $i 'libinput Accel Speed' 1
+        xinput --set-prop $i 'libinput Natural Scrolling Enabled' 1
+        xinput --set-prop $i 'libinput Scrolling Pixel Distance' 50
+      fi
+    done
+
+    xkbcomp ~/.dotfiles/xkbcomp/output.xkb $DISPLAY
+
+    # https://wiki.archlinux.org/title/HiDPI
+    export GDK_SCALE=2
+    export GDK_DPI_SCALE=0.5
+  '';
 }
