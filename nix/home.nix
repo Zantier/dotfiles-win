@@ -159,6 +159,14 @@
     };
   };
 
+  xdg.desktopEntries = {
+    shh = {
+      name = "shh";
+      exec = "shutdown 0";
+      comment = "shutdown 0";
+    };
+  };
+
   xfconf.settings = {
     keyboards = {
       "Default/KeyRepeat/Delay" = 200;
