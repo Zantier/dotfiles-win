@@ -26,6 +26,8 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
+          pkgs.home-manager
+          nixos-install-tools
           nixos-rebuild
         ];
       };
