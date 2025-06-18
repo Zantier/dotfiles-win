@@ -31,15 +31,13 @@
           nixos-rebuild
         ];
       };
+      homeConfigurations.dottxt = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home_common.nix ];
+      };
       homeConfigurations.flippy = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [ ./home_common.nix ./home_flippy.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
       nixosConfigurations.dottxt = nixpkgs.lib.nixosSystem {
         inherit system;
