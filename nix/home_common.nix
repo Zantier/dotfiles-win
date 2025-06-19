@@ -36,6 +36,7 @@
     slack
     spotify
     tree-sitter
+    unzip
     vlc
     wget
     xclip
