@@ -3,6 +3,8 @@
 # After cloning this repo to ~/.dotfiles, run this to create symlinks
 
 files=(
+    .config/Code/User/keybindings.json
+    .config/Code/User/settings.json
     .config/nvim/init.lua
     .git-completion.sh
     .git-prompt.sh

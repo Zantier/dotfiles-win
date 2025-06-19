@@ -1,0 +1,15 @@
+[
+    {
+        // Override vim keybinding
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor",
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor",
+    },
+]

@@ -1,0 +1,224 @@
+{
+    "[latex]": {
+        "editor.quickSuggestions": {
+            // Don't suggest words from the same document. This messed up "tab" being used to move
+            // between "{}" fields
+            "other": "off",
+        },
+    },
+    "editor.minimap.enabled": false,
+    // Rust - don't underline mutable variables
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "*.mutable": {
+                "underline": false,
+            }
+        }
+    },
+    "editor.cursorSurroundingLines": 10,
+    "editor.rulers": [
+        100
+    ],
+    "editor.stickyScroll.enabled": true,
+    "files.insertFinalNewline": true,
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nil",
+    "python.analysis.typeCheckingMode": "strict",
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.css.diagnostics.enable": false,
+    "vim.easymotion": true,
+    "vim.easymotionJumpToAnywhereRegex": "\\b[A-Za-z0-9]|(^|[ \t]+)[^ \tA-Za-z0-9](?=([^A-Za-z0-9]|$){4})",
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.visualstar": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<esc>"
+            ]
+        },
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "%",
+            ],
+            "commands": [
+                // Much more accurate.
+                // Normal % doesn't skip comments and strings.
+                "editor.action.jumpToBracket",
+            ],
+        },
+        {
+            "before": [
+                ",",
+                "f"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "leader",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ],
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        // Bug (vscodevim v1.4.0): The following doesn't get '' to act as ``
+        {
+            "before": [
+                "'"
+            ],
+            "after": [
+                "`"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "="
+            ],
+            "after": [
+                "m",
+                "z",
+                "g",
+                "g",
+                "=",
+                "G",
+                "`",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "y"
+            ],
+            "after": [
+                "m",
+                "z",
+                "g",
+                "g",
+                "y",
+                "G",
+                "`",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "references-view.findReferences"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "y"
+            ],
+            "commands": [
+                "editor.action.goToTypeDefinition"
+            ]
+        },
+        {
+            "before": [
+                ",",
+                "i"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                " ",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": [
+                " ",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "d"
+            ],
+            "commands": [
+                "editor.action.marker.prev"
+            ]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ",",
+                "f"
+            ],
+            "after": [
+                "leader",
+                "leader",
+                "leader",
+                "j"
+            ]
+        },
+        // vscodevim doesn't have "set selection=old"
+        {
+            "before": [
+                "$",
+            ],
+            "after": [
+                "$",
+                "h",
+            ]
+        },
+    ],
+}
