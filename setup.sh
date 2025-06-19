@@ -17,11 +17,10 @@ files=(
     .mytiny.vim
 )
 
-mkdir -p ../.config/nvim
-mkdir -p ../.githooks
 for path in ${files[@]}; do
     # Change path into the format "../../"
     up=$(echo $path | sed -E -e 's/[^/]*$//g' -e 's/[^/]*\//..\//g')
+    mkdir -p $(dirname ../$path)
     ln -s $up.dotfiles/$path ../$path
 done
 echo Created symlinks
