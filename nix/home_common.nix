@@ -30,7 +30,6 @@
     (imagemagick.override {
       ghostscriptSupport = true;
     })
-    kitty
     # Nix language server
     nil
     slack
@@ -121,6 +120,14 @@
   };
   programs.gpg = {
     enable = true;
+  };
+  programs.kitty = {
+    enable = true;
+    settings = {
+      allow_remote_control = true;
+      enable_audio_bell = false;
+      listen_on = "unix:@kitty";
+    };
   };
   programs.neovim = {
     enable = true;
