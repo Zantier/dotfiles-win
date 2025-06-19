@@ -43,5 +43,9 @@
         inherit system;
         modules = [ ./configuration_common.nix ./configuration_dottxt.nix ./hardware-configuration_dottxt.nix ];
       };
+      nixosConfigurations.flippy = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ ./configuration_common.nix ./configuration_flippy.nix ./hardware-configuration_flippy.nix ];
+      };
     };
 }

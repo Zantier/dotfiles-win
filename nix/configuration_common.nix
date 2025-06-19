@@ -78,7 +78,7 @@
   # };
   users.users.zan = {
     isNormalUser = true;
-    extraGroups = [ "input" "networkmanager" "wheel" ];
+    extraGroups = [ "adbusers" "input" "networkmanager" "wheel" ];
   };
 
   # programs.firefox.enable = true;
