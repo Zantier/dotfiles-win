@@ -41,7 +41,7 @@
       };
       nixosConfigurations.dottxt = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration_common.nix ];
+        modules = [ ./configuration_common.nix ./configuration_dottxt.nix ./hardware-configuration_dottxt.nix ];
       };
     };
 }
