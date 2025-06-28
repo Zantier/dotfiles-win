@@ -109,6 +109,9 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # I just need this for VSCode codespaces (for cs50x)
+  services.gnome.gnome-keyring.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

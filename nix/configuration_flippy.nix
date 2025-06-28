@@ -9,8 +9,6 @@
 
   programs.adb.enable = true;
 
-  # I just need this for VSCode codespaces (for cs50x)
-  services.gnome.gnome-keyring.enable = true;
   services.tlp = {
     enable = true;
     settings = {
