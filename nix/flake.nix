@@ -12,15 +12,7 @@
   outputs = { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      overlays = [
-        (final: prev: {
-          vscode = prev.vscode.override {
-            commandLineArgs = "--force-device-scale-factor=2";
-          };
-        })
-      ];
       pkgs = import nixpkgs {
-        inherit overlays;
         inherit system;
       };
     in {

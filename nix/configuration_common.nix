@@ -38,22 +38,10 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-  services.displayManager.defaultSession = "xfce";
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    # https://nixos.wiki/wiki/Xorg
-    # Make first login screen bigger
-    dpi = 192;
-  };
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
-  services.xserver.xkb.layout = "gb";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

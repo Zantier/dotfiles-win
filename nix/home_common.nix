@@ -22,10 +22,6 @@
     # Needed occasionally by tree-sitter in neovim
     gcc
     git
-    # Since upgrading nixos to 25.05beta. Fix Chrome being double size.
-    (google-chrome.override {
-      commandLineArgs = "--force-device-scale-factor=2";
-    })
     htop
     (imagemagick.override {
       ghostscriptSupport = true;
@@ -36,11 +32,7 @@
     spotify
     tree-sitter
     unzip
-    vlc
     wget
-    xclip
-    xidlehook
-    xorg.xkbcomp
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -118,6 +110,7 @@
     enable = true;
     nix-direnv.enable = true;
   };
+  programs.firefox.enable = true;
   programs.gpg = {
     enable = true;
   };
@@ -166,31 +159,6 @@
     package = pkgs.vscode.fhs;
   };
 
-  services.fusuma = {
-    enable = true;
-    extraPackages = with pkgs; [ xdotool coreutils xorg.xprop ];
-    settings = {
-      swipe = {
-        "3" = {
-          left = {
-            command = "xdotool set_desktop --relative 1";
-          };
-          right = {
-            command = "xdotool set_desktop --relative -- -1";
-          };
-        };
-      };
-      #pinch = {
-      #  "in" = {
-      #    command = "xdotool keydown ctrl click 4 keyup ctrl";
-      #  };
-      #  out = {
-      #    command = "xdotool keydown ctrl click 5 keyup ctrl";
-      #  };
-      #};
-    };
-  };
-
   xdg.desktopEntries = {
     shh = {
       name = "shh";
@@ -198,102 +166,4 @@
       comment = "shutdown 0";
     };
   };
-
-  xfconf.settings = {
-    keyboards = {
-      "Default/KeyRepeat/Delay" = 200;
-      "Default/KeyRepeat/Rate" = 30;
-    };
-    xfce4-keyboard-shortcuts = {
-      "commands/custom/<Super>space" = "xfce4-appfinder";
-      "xfwm4/custom/<Super>KP_Left" = null; # tile_left_key;
-      "xfwm4/custom/<Super>KP_Right" = null; # tile_right_key
-      "xfwm4/custom/<Alt>F10" = null; # maximize_window_key;
-      "xfwm4/custom/<Super>Left" = "tile_left_key";
-      "xfwm4/custom/<Super>Right" = "tile_right_key";
-      "xfwm4/custom/<Super>Up" = "maximize_window_key";
-    };
-    xfce4-panel = {
-      "panels" = [ 1 ];
-      "panels/panel-1/enable-struts" = null;
-      "panels/panel-1/icon-size" = null;
-      "panels/panel-1/length" = 100;
-      "panels/panel-1/length-adjust" = null;
-      "panels/panel-1/mode" = null;
-      "panels/panel-1/nrows" = null;
-      "panels/panel-1/plugin-ids" = [ 1 2 3 4 5 6 7 8 9 10 11 ];
-      "panels/panel-1/position" = "p=6;x=0;y=0";
-      "panels/panel-1/position-locked" = true;
-      "panels/panel-1/size" = 26;
-      "plugins/plugin-1" = "applicationsmenu";
-      "plugins/plugin-2" = "tasklist";
-      "plugins/plugin-2/grouping" = 1;
-      "plugins/plugin-2/show-labels" = false;
-      "plugins/plugin-3" = "separator";
-      "plugins/plugin-3/expand" = true;
-      "plugins/plugin-3/style" = 0;
-      "plugins/plugin-4" = "pager";
-      "plugins/plugin-5" = "separator";
-      "plugins/plugin-5/style" = 0;
-      "plugins/plugin-6" = "systray";
-      "plugins/plugin-6/square-icons" = true;
-      "plugins/plugin-7" = "pulseaudio";
-      "plugins/plugin-8" = "power-manager-plugin";
-      "plugins/plugin-9" = "clock";
-      "plugins/plugin-10" = "separator";
-      "plugins/plugin-10/style" = 0;
-      "plugins/plugin-11" = "actions";
-    };
-    xfce4-power-manager = {
-      "xfce4-power-manager/brightness-step-count" = 7;
-      "xfce4-power-manager/brightness-exponential" = true;
-      # 1 = Suspend
-      "xfce4-power-manager/lid-action-on-battery" = 1;
-      "xfce4-power-manager/lid-action-on-ac" = 1;
-      # Put to sleep after
-      "xfce4-power-manager/dpms-on-battery-sleep" = 11;
-      "xfce4-power-manager/dpms-on-ac-sleep" = 11;
-      # Switch off after
-      "xfce4-power-manager/dpms-on-battery-off" = 12;
-      "xfce4-power-manager/dpms-on-ac-off" = 12;
-      # On inactivity reduce to (%)
-      "xfce4-power-manager/brightness-level-on-battery" = 1;
-      "xfce4-power-manager/brightness-level-on-ac" = 1;
-      # Reduce after (s)
-      "xfce4-power-manager/brightness-on-battery" = 600;
-      "xfce4-power-manager/brightness-on-ac" = 600;
-    };
-    xsettings = {
-      "Gtk/CursorThemeName" = "Adwaita";
-      "Gtk/CursorThemeSize" = 41;
-      "Net/ThemeName" = "Adwaita-dark";
-      "Xft/DPI" = 192;
-    };
-  };
-
-  xsession.enable = true;
-  xsession.profileExtra = ''
-    ## https://wiki.archlinux.org/title/Mouse_acceleration#Disabling_mouse_acceleration
-    for i in $(xinput list --id-only); do
-      device_name=$(xinput list --name-only $i)
-      if echo "$device_name" | grep -qi mouse; then
-        echo xinput mouse: [$i] $device_name
-        xinput --set-prop $i 'libinput Accel Profile Enabled' 0, 1
-        xinput --set-prop $i 'libinput Accel Speed' 1
-      fi
-      if echo "$device_name" | grep -qi touchpad; then
-        echo xinput touchpad: [$i] $device_name
-        xinput --set-prop $i 'libinput Accel Profile Enabled' 0, 1
-        xinput --set-prop $i 'libinput Accel Speed' 1
-        xinput --set-prop $i 'libinput Natural Scrolling Enabled' 1
-        xinput --set-prop $i 'libinput Scrolling Pixel Distance' 50
-      fi
-    done
-
-    xkbcomp ~/.dotfiles/xkbcomp/output.xkb $DISPLAY
-
-    # https://wiki.archlinux.org/title/HiDPI
-    export GDK_SCALE=2
-    export GDK_DPI_SCALE=0.5
-  '';
 }
