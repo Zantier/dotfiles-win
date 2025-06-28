@@ -37,7 +37,6 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 export LESS=FRXq
 
 export PATH=$HOME/.local/bin:$PATH
-export DISPLAY=:0.0
 
 
 # This is a very simple replacement for __git_ps1
